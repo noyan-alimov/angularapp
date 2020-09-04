@@ -9,6 +9,16 @@ import { ProductItem } from "./productItem.component";
 import { ProductList } from "./productList.component";
 import { Header } from "./header.component";
 import { CategoryList } from "./categoryList.component";
+import { RouterModule } from "@angular/router";
+import { OrderDetails } from "./orderDetails.component";
+import { Summary } from "./summary.component";
+
+const routes = RouterModule.forRoot([
+  { path: 'products', component: ProductList },
+  { path: 'order', component: OrderDetails },
+  { path: 'summary/:id', component: Summary },
+  { path: '', redirectTo: '/products', pathMatch: 'full' }
+]);
 
 @NgModule({
   declarations: [
@@ -16,13 +26,16 @@ import { CategoryList } from "./categoryList.component";
     ProductItem,
     ProductList,
     Header,
-    CategoryList
+    CategoryList,
+    OrderDetails,
+    Summary
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    DataModelModule
+    DataModelModule,
+    routes
   ],
   providers: [],
   bootstrap: [AppComponent]
